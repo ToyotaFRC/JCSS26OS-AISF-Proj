@@ -1,30 +1,375 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>テストページ</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            color: #333;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ゆりかごから墓場まで｜ひとの生涯に寄りそうAIパートナーのSFプロトタイピングと認知科学的展開</title>
+<meta name="description" content="2026年9月1日（火）9:30-11:30／追手門学院大学 総持寺キャンパス。日本認知科学会 第43回大会 オーガナイズドセッション。SFプロトタイピング作品『不揃いな靴に選ばれる』を全ページ公開。追手門学院大学・慶應義塾大学・トヨタ自動車 未来創生センター。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ゆりかごから墓場まで｜AIパートナーのSFプロトタイピングと認知科学的展開">
+<meta property="og:description" content="2026年9月1日（火）9:30-11:30／追手門学院大学 総持寺キャンパス。SF作品『不揃いな靴に選ばれる』を全ページ公開。">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600&family=Klee+One:wght@400;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 
-    <h1>こんにちは！</h1>
-    <p>これはテスト用のHTMLファイルです。</p>
-    <button onclick="alert('ボタンが押されました！')">クリックしてね</button>
+<!--
+═══════════════════════════════════════════════════════════════
+  編集ガイド（このコメントは公開ページには表示されません）
 
+  ▼ 開催日時・会場   … 下の「CONFIG:SESSION」ブロック
+  ▼ 動画ID          … 下の  data-youtube="YT0L3rXmULI"
+  ▼ 冊子ページ画像   … assets/booklet/page-01.jpg 〜 page-20.jpg
+  ▼ 冊子PDF         … assets/booklet.pdf
+  ※ ページ数を変える場合は assets/js/flipbook.js の TOTAL_PAGES も変更
+═══════════════════════════════════════════════════════════════
+-->
+
+
+<svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+  <symbol id="fp" viewBox="0 0 60 92">
+    <path d="M30 3c14.4 0 24 11.6 24 26.6 0 9-3.4 15.4-5.4 20.6-1.4 3.6-2.2 6.2-2.2 8.8 0 5.6-6.6 9.4-16.4 9.4S13.6 64.6 13.6 59c0-2.6-.8-5.2-2.2-8.8C9.4 45 6 38.6 6 29.6 6 14.6 15.6 3 30 3Z"/>
+    <ellipse cx="30" cy="81.5" rx="14.6" ry="10"/>
+  </symbol>
+</svg>
+
+<a class="skiplink" href="#about">本文へスキップ</a>
+
+<header class="nav" id="nav">
+  <a class="nav__home" href="#top">
+    <span class="nav__mark" aria-hidden="true"></span>
+    <span class="nav__title">ゆりかごから墓場まで</span>
+  </a>
+  <nav class="nav__links" aria-label="ページ内ナビゲーション">
+    <a href="#about">概要</a>
+    <a href="#program">当日の構成</a>
+    <a href="#speakers">登壇者</a>
+    <a href="#film">映像</a>
+    <a href="#booklet">冊子を読む</a>
+    <a href="#concepts">用語解説</a>
+  </nav>
+  <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span><span></span>
+    <span class="sr-only">メニュー</span>
+  </button>
+</header>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero" id="top">
+  <div class="sky" aria-hidden="true">
+    <span class="meteor m1"></span><span class="meteor m2"></span>
+    <span class="meteor m3"></span><span class="meteor m4"></span>
+  </div>
+  <div class="hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow">日本認知科学会 第43回大会 ／ オーガナイズドセッション</p>
+      <p class="hero__banner">ゆりかごから墓場まで</p>
+      <h1 class="hero__title">
+        ひとの生涯に寄りそう<br>
+        <em>AIパートナー</em>の<br>
+        SFプロトタイピングと<br>認知科学的展開
+      </h1>
+      <p class="hero__lead">AIパートナーは、本当に&ldquo;善い社会&rdquo;をもたらすのか。<br>
+        物語を先につくり、そこから研究の問いを立て直します。</p>
+
+      <!-- CONFIG:SESSION ▼ 開催日時・会場はここを書き換えてください ▼ -->
+      <dl class="factlist">
+        <div><dt>日時</dt><dd>2026年9月1日（火）9:30 – 11:30</dd></div>
+        <div><dt>会場</dt><dd>追手門学院大学 総持寺キャンパス　2F OS会場（SRC206）</dd></div>
+        <div><dt>主催</dt><dd>追手門学院大学・慶應義塾大学・トヨタ自動車株式会社 未来創生センター</dd></div>
+      </dl>
+      <!-- CONFIG:SESSION ▲ ここまで ▲ -->
+
+      <div class="hero__cta">
+        <a class="btn btn--accent" href="#booklet">冊子をめくって読む</a>
+        <a class="btn btn--ghost" href="#film">映像を見る</a>
+      </div>
+    </div>
+    <figure class="hero__book">
+      <img src="assets/img/cover.jpg" alt="SF作品『不揃いな靴に選ばれる』表紙。月面に立つ宇宙服の人物と、左右で色の違う靴。" width="700" height="996">
+      <figcaption>SFプロトタイピング作品<br><b>『不揃いな靴に選ばれる』</b><br>小説：宮本道人／絵：一色真由美</figcaption>
+    </figure>
+  </div>
+  <div class="hero__scroll" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<section class="sec sec--paper" id="about">
+  <div class="wrap">
+    <p class="sectag"><i>01</i> セッションについて</p>
+    <h2 class="sechead">物語を先につくってから、研究の問いを立て直す。</h2>
+    <div class="about">
+      <div class="about__body">
+        <p>AIとフィジカルAIの発達は、知的労働だけでなく製造や物流までも自動化しつつあります。その先で、AIは人の一生に寄り添う存在になりうるのか。なったとして、それは幸福なのか。</p>
+        <p>このセッションでは、企業・大学・イラストレーター・SF作家が合同でSFプロトタイピングを行い、その成果物である短編『不揃いな靴に選ばれる』を共通の題材にします。抽象的な議論から始めるのではなく、まず具体的な未来を一つ描き切り、その世界に認知科学からツッコミを入れる——という順番で進めます。</p>
+        <p>描いたのはユートピアだけではありません。同じ理念から出発した二つの都市が、片方は共生へ、片方は支配へと分岐していく。その分岐点がどこにあったのかを、フロアも交えて考えます。</p>
+      </div>
+      <ul class="about__points">
+        <li><b>物語で議論を可視化する</b>SFプロトタイピングで未来社会を先に&ldquo;体験&rdquo;する</li>
+        <li><b>領域を横断する</b>AI・ロボット・認知科学・デザイン・哲学・産業の知見を結集</li>
+        <li><b>影も扱う</b>ユートピアとディストピアの両面から検討する</li>
+        <li><b>三方よしを問う</b>買い手よし・売り手よし・世間よしの未来社会をつくれるか</li>
+      </ul>
+    </div>
+
+    <div class="qbox">
+      <h3 class="qbox__head">私たちは、こんな未来を議論します</h3>
+      <ul class="qbox__list">
+        <li>AIは家族になれるのか。一生寄り添うロボットは幸福を生むのか。</li>
+        <li>人はAIに依存するのか。それとも成長するのか。</li>
+        <li>企業・社会・ユーザがともに幸せになる未来とは。</li>
+        <li>ひとの生涯によりそう存在は、私たちの「生き方」をどう変えるのか。</li>
+      </ul>
+    </div>
+
+    <div class="audience">
+      <h3>こんな方におすすめ</h3>
+      <ul>
+        <li>AI・ロボット研究者</li><li>認知科学者・心理学者</li><li>HRI・デザイン・UX</li>
+        <li>SF・シナリオ・未来研究</li><li>倫理・哲学・法学</li><li>企業・産業・政策関係者</li>
+        <li>Well-being・社会実装に関心のある方</li>
+      </ul>
+    </div>
+  </div>
+  <div class="trail trail--divider" data-prints="7" aria-hidden="true"></div>
+</section>
+
+<!-- ══════════════ PROGRAM ══════════════ -->
+<section class="sec sec--paper2" id="program">
+  <div class="wrap">
+    <p class="sectag"><i>02</i> 当日の構成</p>
+    <h2 class="sechead">趣旨説明から、作品世界へのツッコミまで。</h2>
+    <ol class="program">
+      <li>
+        <span class="program__no">1</span>
+        <div><h3>OS趣旨説明</h3><p class="who">河野太郎</p><p>本企画の狙いと進め方を共有します。</p></div>
+      </li>
+      <li>
+        <span class="program__no">2</span>
+        <div><h3>SFプロトタイピングと作品紹介</h3><p class="who">宮本道人・大澤博隆・一色真由美</p><p>制作過程と、作品の世界観を紹介します。</p></div>
+      </li>
+      <li>
+        <span class="program__no">3</span>
+        <div><h3>研究シーズ・問題意識の提示</h3><p class="who">高橋英之・山田整</p><p>各メンバーの研究シーズを共有します。</p></div>
+      </li>
+      <li>
+        <span class="program__no">4</span>
+        <div><h3>総括コメント</h3><p class="who">大平英樹</p><p>認知科学の視点から論点を整理します。</p></div>
+      </li>
+      <li>
+        <span class="program__no">5</span>
+        <div><h3>パネルディスカッション</h3><p class="who">登壇者＋フロア</p><p>作品世界へのツッコミを中心に議論します。</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════ SPEAKERS ══════════════ -->
+<section class="sec sec--paper" id="speakers">
+  <div class="wrap">
+    <p class="sectag"><i>03</i> 登壇者</p>
+    <h2 class="sechead">企業・大学・つくり手が同じ机につきます。</h2>
+    <p class="grouplabel">登壇者</p>
+    <ul class="speakers">
+      <li><b>宮本 道人</b><span>慶應義塾大学</span></li>
+      <li><b>大平 英樹</b><span>名古屋大学</span></li>
+      <li><b>一色 真由美</b><span>イラストレーター</span></li>
+      <li><b>大澤 博隆</b><span>慶應義塾大学</span></li>
+      <li><b>山田 整</b><span>トヨタ自動車</span></li>
+    </ul>
+
+    <p class="grouplabel">企画者</p>
+    <ul class="speakers speakers--two">
+      <li><b>高橋 英之</b><span>追手門学院大学</span></li>
+      <li><b>河野 太郎</b><span>トヨタ自動車</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════ FILM ══════════════ -->
+<section class="sec sec--night" id="film">
+  <div class="wrap">
+    <p class="sectag sectag--light"><i>04</i> 映像</p>
+    <h2 class="sechead sechead--light">『不揃いな靴に選ばれる』</h2>
+    <p class="lead lead--light">物語をそのまま映像にしました。5分ほどで世界の全体像がつかめます。</p>
+    <div class="video" data-youtube="YT0L3rXmULI">
+      <button class="video__play" type="button" aria-label="動画を再生する">
+        <img src="https://i.ytimg.com/vi/YT0L3rXmULI/maxresdefault.jpg" alt="" loading="lazy">
+        <span class="video__btn" aria-hidden="true"></span>
+      </button>
+      <noscript>
+        <iframe src="https://www.youtube-nocookie.com/embed/YT0L3rXmULI" title="不揃いな靴に選ばれる" allowfullscreen loading="lazy"></iframe>
+      </noscript>
+    </div>
+    <p class="video__link"><a href="https://www.youtube.com/watch?v=YT0L3rXmULI" target="_blank" rel="noopener">YouTubeで見る ↗</a></p>
+  </div>
+</section>
+
+<!-- ══════════════ BOOKLET / FLIPBOOK ══════════════ -->
+<section class="sec sec--night sec--book" id="booklet">
+  <div class="wrap">
+    <p class="sectag sectag--light"><i>05</i> 冊子を読む</p>
+    <h2 class="sechead sechead--light">『不揃いな靴に選ばれる』</h2>
+    <p class="lead lead--light">右綴じの見開きです。絵はノドをまたいで一枚につながります。右ページをクリック、または <kbd>→</kbd> キーで読み進みます。</p>
+  </div>
+
+  <div class="fb" id="fb" data-total="20">
+    <div class="fb__stage">
+      <div class="fb__book" id="fbBook">
+        <div class="fb__slot fb__slot--left"><img id="fbLeft" alt="" draggable="false"></div>
+        <div class="fb__slot fb__slot--right"><img id="fbRight" alt="" draggable="false"></div>
+        <div class="fb__gutter" aria-hidden="true"></div>
+        <div class="fb__flip" id="fbFlip" aria-hidden="true">
+          <div class="fb__face fb__face--front"><img id="fbFront" alt="" draggable="false"></div>
+          <div class="fb__face fb__face--back"><img id="fbBack" alt="" draggable="false"></div>
+        </div>
+        <button class="fb__hit fb__hit--next" id="fbHitNext" type="button"><span class="sr-only">次のページ</span></button>
+        <button class="fb__hit fb__hit--prev" id="fbHitPrev" type="button"><span class="sr-only">前のページ</span></button>
+      </div>
+    </div>
+
+    <div class="fb__bar">
+      <div class="fb__trace" aria-hidden="true">
+        <span class="fb__trace-line fb__trace-line--blue" id="fbTraceB"></span>
+        <span class="fb__trace-line fb__trace-line--orange" id="fbTraceO"></span>
+        <span class="fb__walker" id="fbWalker">
+          <svg class="fp fp--blue"><use href="#fp"/></svg>
+          <svg class="fp fp--orange"><use href="#fp"/></svg>
+        </span>
+      </div>
+      <div class="fb__controls">
+        <button class="fb__btn" id="fbPrev" type="button" title="前のページ（← キー）">←&nbsp;前へ</button>
+        <output class="fb__count" id="fbCount" aria-live="polite">表紙</output>
+        <button class="fb__btn" id="fbNext" type="button" title="次のページ（→ キー）">次へ&nbsp;→</button>
+        <span class="fb__sep" aria-hidden="true"></span>
+        <button class="fb__btn fb__btn--icon" id="fbSpread" type="button">1ページ表示</button>
+        <button class="fb__btn fb__btn--icon" id="fbThumbs" type="button" aria-expanded="false">目次</button>
+        <button class="fb__btn fb__btn--icon" id="fbFull" type="button">全画面</button>
+        <a class="fb__btn fb__btn--icon" href="assets/booklet.pdf" download>PDF</a>
+      </div>
+    </div>
+
+    <div class="fb__thumbs" id="fbThumbStrip" hidden></div>
+  </div>
+
+  <div class="wrap">
+    <p class="note-small">『不揃いな靴に選ばれる』2026年9月1日発行。小説：宮本道人／絵：一色真由美／文：高橋英之・山田整／デザイン：河田美紗子。本書の内容の一部あるいは全部を、無断で複製・転載することは法律で禁じられています。</p>
+  </div>
+</section>
+
+<!-- ══════════════ CONCEPTS ══════════════ -->
+<section class="sec sec--paper" id="concepts">
+  <div class="wrap">
+    <p class="sectag"><i>06</i> 世界観と用語</p>
+    <h2 class="sechead">この物語が置いている設定。</h2>
+    <p class="lead">作品世界の用語解説（文：高橋英之／絵：河田美紗子）。冊子の該当ページをその場で開けます。</p>
+
+    <div class="cards">
+      <article class="card" style="--card-accent:var(--accent)">
+        <p class="card__kicker">AI人間相互マッチング特区</p>
+        <h3 class="card__title">地球りんねメトロポリス</h3>
+        <p>人間と自律型AIの長期的な共生関係を検証するために設置された、地上型の実験都市。設立当初は互いに相手を選び、拒否も尊重する「相互マッチング」を理念としていた。</p>
+        <button class="jump" data-page="14" type="button">冊子 p.12 を開く</button>
+      </article>
+      <article class="card" style="--card-accent:var(--teal)">
+        <p class="card__kicker">AI人間相互リスペクト特区</p>
+        <h3 class="card__title">月面つくもタウン</h3>
+        <p>人間・AI・ロボットが、それぞれの来歴や選好を保持したまま長期的な関係を形成することを目的とした月面生活実証区域。修理や躯体変更のたび、残したい記憶と変えたくない特性を本人に確認する。</p>
+        <button class="jump" data-page="15" type="button">冊子 p.13 を開く</button>
+      </article>
+      <article class="card" style="--card-accent:var(--accent)">
+        <p class="card__kicker">感覚共創型パートナーAI</p>
+        <h3 class="card__title">靴AI</h3>
+        <p>歩行を移動手段ではなく、来歴を形成する継続的な経験として捉える自律型ウェアラブルAI。左右それぞれに独立したAIが載っており、ときに利用者の予定とは違う経路を提案する。</p>
+        <button class="jump" data-page="16" type="button">冊子 p.14 を開く</button>
+      </article>
+      <article class="card" style="--card-accent:var(--blue)">
+        <p class="card__kicker">低重力共創モビリティ</p>
+        <h3 class="card__title">月の傘</h3>
+        <p>低重力環境で歩行・跳躍を支援しつつ、宇宙線や微小隕石から利用者を守る自律型パーソナルモビリティ。あえて介入しない、進路をわずかにずらすなど、最適化から外れた振る舞いも許容される。</p>
+        <button class="jump" data-page="17" type="button">冊子 p.15 を開く</button>
+      </article>
+      <article class="card" style="--card-accent:var(--teal)">
+        <p class="card__kicker">歩行表現職</p>
+        <h3 class="card__title">ウォークペインター</h3>
+        <p>人間の歩行軌跡を表現媒体として用い、身体移動そのものを作品化する専門職。誰が、どこを、どんな身体状態で歩き、何に出会って進路を変えたか——制作過程の固有性に価値が置かれる。</p>
+        <button class="jump" data-page="18" type="button">冊子 p.16 を開く</button>
+      </article>
+    </div>
+
+    <div class="notes">
+      <h3 class="notes__head">WORLDVIEW NOTE<span>文：山田整</span></h3>
+      <ol class="notes__list">
+        <li><i>01</i><b>「働くために生きる」社会の、その先へ</b><button class="jump" data-page="10" type="button">開く</button></li>
+        <li><i>02</i><b>UBIはどう実装されるのか——「消えるお金」という思考実験</b><button class="jump" data-page="11" type="button">開く</button></li>
+        <li><i>03</i><b>AGI・ASIと「意識」は同じものではない</b><button class="jump" data-page="12" type="button">開く</button></li>
+        <li><i>04</i><b>AEI —— AIが「いやだ」と言う未来</b><button class="jump" data-page="13" type="button">開く</button></li>
+      </ol>
+    </div>
+
+    <blockquote class="pull">
+      AIの「いやだ」を故障として消す地球と、関係を作り直すための言葉として聞く月。<br>
+      人類がこれから、理解し得ない他者と共存していくために、この差をどう捉えるべきなのでしょうか。
+      <cite>『不揃いな靴に選ばれる』より</cite>
+    </blockquote>
+    <div class="trail trail--divider" data-prints="7" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ══════════════ CREDITS ══════════════ -->
+<section class="sec sec--paper2" id="credits">
+  <div class="wrap">
+    <p class="sectag"><i>07</i> クレジット</p>
+    <div class="credits">
+      <div class="credits__col">
+        <h3>冊子『不揃いな靴に選ばれる』</h3>
+        <dl>
+          <div><dt>小説</dt><dd>宮本道人</dd></div>
+          <div><dt>絵</dt><dd>一色真由美</dd></div>
+          <div><dt>文</dt><dd>高橋英之・山田整</dd></div>
+          <div><dt>デザイン</dt><dd>河田美紗子</dd></div>
+          <div><dt>協力</dt><dd>大澤博隆</dd></div>
+          <div><dt>発行</dt><dd>2026年9月1日</dd></div>
+        </dl>
+      </div>
+      <div class="credits__col">
+        <h3>SFプロトタイピングメンバー</h3>
+        <p class="credits__members">一色真由美・河田美紗子・河野太郎・河野理玖・関優志・高橋英之・中井きらら・宮本道人・山口雄平・山田整</p>
+        <h3>発行</h3>
+        <p class="credits__members">追手門学院大学／慶應義塾大学／トヨタ自動車株式会社 未来創生センター</p>
+        <h3>ホームページ制作</h3>
+        <p class="credits__members">阪本想菜（追手門学院大学）</p>
+      </div>
+      <div class="credits__col">
+        <h3>大会情報</h3>
+        <p class="credits__members">日本認知科学会 第43回大会<br>2026年8月31日（月）〜9月2日（水）<br>追手門学院大学 総持寺キャンパス<br>〒567-0013 大阪府茨木市太田東芝町1-1</p>
+        <p><a class="btn btn--small" href="https://pub.confit.atlas.jp/ja/event/jcss2026" target="_blank" rel="noopener">大会公式サイト ↗</a></p>
+      </div>
+    </div>
+    <div class="logos">
+      <p class="grouplabel grouplabel--center">発行</p>
+      <ul>
+        <li class="logo logo--otemon"><img src="assets/img/logos/otemon.png" alt="追手門学院大学" loading="lazy"></li>
+        <li class="logo logo--keio"><img src="assets/img/logos/keio.png" alt="慶應義塾大学" loading="lazy"></li>
+        <li class="logo logo--toyota"><img src="assets/img/logos/toyota.png" alt="トヨタ自動車株式会社 未来創生センター" loading="lazy"></li>
+      </ul>
+    </div>
+
+    <p class="closing">未来は、まだ決まっていない。一緒に考えましょう。</p>
+  </div>
+</section>
+
+<footer class="foot">
+  <p>日本認知科学会 第43回大会 オーガナイズドセッション「ゆりかごから墓場まで」関連成果物</p>
+  <p class="foot__c">&copy; 2026 追手門学院大学・慶應義塾大学・トヨタ自動車株式会社 未来創生センター</p>
+</footer>
+
+<script src="assets/js/flipbook.js?v=3"></script>
+<script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
