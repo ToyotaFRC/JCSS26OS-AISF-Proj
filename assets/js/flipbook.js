@@ -58,8 +58,8 @@
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
   function view(i) {
-    if (i <= 0)      return { L: 0, R: 1 };
-    if (i >= MAX_SI) return { L: 0, R: TOTAL_PAGES };   /* 裏表紙は右側に単独表示 */
+    if (i <= 0)      return { L: 1, R: 0 };             /* 閉じた本は左半分。表紙は左 */
+    if (i >= MAX_SI) return { L: 0, R: TOTAL_PAGES };   /* めくり終えた紙は右に積まれる。裏表紙は右 */
     return { L: 2 * i + 1, R: 2 * i };
   }
 
@@ -147,11 +147,13 @@
 
     var from = 0, to = 0;
     if (single) {
-      if (dir === 'next') { from = 0; to = -180; }
-      else                { from = -180; to = 0; }
+      /* 1ページ表示では、紙は右へ抜けていく */
+      flip.className = 'fb__flip is-active dir-next is-single';
+      if (dir === 'next') { from = 0;   to = 180; }
+      else                { from = 180; to = 0; }
     } else {
-      if (dir === 'next') { from = 0; to = -180; }
-      else                { from = 0; to = 180; }
+      if (dir === 'next') { from = 0; to = 180; }   /* 左の紙を右へめくる */
+      else                { from = 0; to = -180; }  /* 右の紙を左へ戻す */
     }
 
     flip.style.transition = 'none';
@@ -189,31 +191,15 @@
 
     busy = true;
 
-    var targetSi = si + (dir === 'next' ? 1 : -1);
-    if (!single && (targetSi >= MAX_SI || si >= MAX_SI)) {
-      /* 裏表紙は綴じの外側なので、紙をめくる動きではなく静かに切り替える */
-      book.classList.add('is-fading');
-      updateChrome(targetSi, view(targetSi).R || view(targetSi).L);
-      window.setTimeout(function () {
-        si = targetSi;
-        render();
-        window.setTimeout(function () {
-          book.classList.remove('is-fading');
-          busy = false;
-        }, 40);
-      }, 250);
-      return;
-    }
-
     if (single) {
       var target = page + (dir === 'next' ? 1 : -1);
       updateChrome(Math.floor(target / 2), target);   /* バーを同時に走らせる */
       if (dir === 'next') {
-        setImg(imgFront, page);
+        setImg(imgFront, page);        // いま見ている紙が右へ抜ける
         setImg(imgBack, target);
-        setImg(imgR, target);          // めくった下から次のページが出る
+        setImg(imgR, target);          // その下から次のページが現れる
       } else {
-        setImg(imgFront, target);
+        setImg(imgFront, target);      // 右から戻ってくる
         setImg(imgBack, page);
       }
       animate(dir, function () {
@@ -230,13 +216,13 @@
     updateChrome(nextSi, nx.R || nx.L);              /* バーを同時に走らせる */
 
     if (dir === 'next') {
-      setImg(imgFront, cur.R);         // めくれる紙のオモテ
-      setImg(imgBack,  nx.L);          // その裏
-      setImg(imgR,     nx.R);          // 下から現れる右ページ
+      setImg(imgFront, cur.L);         // めくれる紙のオモテ（左ページ）
+      setImg(imgBack,  nx.R);          // その裏。めくり終えると右へ着地する
+      setImg(imgL,     nx.L);          // 下から現れる左ページ
     } else {
-      setImg(imgFront, cur.L);
-      setImg(imgBack,  nx.R);
-      setImg(imgL,     nx.L);
+      setImg(imgFront, cur.R);
+      setImg(imgBack,  nx.L);
+      setImg(imgR,     nx.R);
     }
 
     animate(dir, function () {
@@ -301,8 +287,8 @@
     var r = root.getBoundingClientRect();
     var visible = r.top < window.innerHeight * 0.75 && r.bottom > window.innerHeight * 0.25;
     if (!visible && !document.fullscreenElement) return;
-    if (e.key === 'ArrowRight') { e.preventDefault(); turn('next'); }
-    if (e.key === 'ArrowLeft')  { e.preventDefault(); turn('prev'); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); turn('next'); }
+    if (e.key === 'ArrowRight') { e.preventDefault(); turn('prev'); }
     if (e.key === 'Home')       { e.preventDefault(); goToPage(1); }
     if (e.key === 'End')        { e.preventDefault(); goToPage(TOTAL_PAGES); }
   });
@@ -319,7 +305,7 @@
     var dx = e.changedTouches[0].clientX - sx;
     var dy = e.changedTouches[0].clientY - sy;
     if (Math.abs(dx) < 42 || Math.abs(dx) < Math.abs(dy)) return;
-    turn(dx < 0 ? 'next' : 'prev');
+    turn(dx > 0 ? 'next' : 'prev');
   }, { passive: true });
 
   btnThumbs.addEventListener('click', function () {

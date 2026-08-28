@@ -639,3 +639,35 @@ kbd{font-family:var(--lat);font-size:12px;padding:2px 8px;border:1px solid var(-
   .logos .logo--keio img{height:35px}
   .logos .logo--toyota img{height:27px}
 }
+
+/* 右綴じであることを操作バーにも明示する */
+.fb__bind{
+  font-size:11px;letter-spacing:.16em;color:var(--teal-soft);
+  border:1px solid rgba(119,201,213,.45);border-radius:999px;
+  padding:5px 12px;margin-right:6px;white-space:nowrap;
+}
+@media (max-width:640px){ .fb__bind{font-size:10px;padding:4px 9px} }
+
+/* ══════════════════════════════════════════════
+   右綴じの正しい向きへ
+   ・閉じた本は左半分に置かれる（表紙は左・裏表紙は右）
+   ・紙は左から右へめくれる
+   ══════════════════════════════════════════════ */
+.fb__flip.dir-next{left:0;transform-origin:right center}
+.fb__flip.dir-prev{left:50%;transform-origin:left center}
+.fb.is-single .fb__flip.dir-next{left:0;width:100%;transform-origin:right center}
+.fb__hit--next{left:0}
+.fb__hit--prev{left:50%}
+
+/* ══════════════════════════════════════════════
+   優先順位の修正
+   .fb:not(.is-single) 付きの古い規則の方が強く、めくれる紙が
+   右半分に置かれたまま右端を軸に回っていた（本の外へ紙が出る）
+   ══════════════════════════════════════════════ */
+.fb:not(.is-single) .fb__flip.dir-next{left:0;transform-origin:right center}
+.fb:not(.is-single) .fb__flip.dir-prev{left:50%;transform-origin:left center}
+.fb:not(.is-single) .fb__hit--next{left:0}
+.fb:not(.is-single) .fb__hit--prev{left:50%}
+.fb.is-single .fb__flip.dir-next,
+.fb.is-single .fb__flip.dir-prev{left:0;width:100%;transform-origin:right center}
+.fb__bind{display:none}
