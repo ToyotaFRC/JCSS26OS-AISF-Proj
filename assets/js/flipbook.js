@@ -19,7 +19,7 @@
   /* 印刷されているノンブル（物理ページ番号 → 冊子上の表記） */
   var FOLIO = {
     1: '表紙', 2: '01', 3: '02', 4: '03', 5: '04', 6: '05', 7: '06',
-    8: '07', 9: 'おわり', 10: '08', 11: '09', 12: '10', 13: '11',
+    8: '07', 9: '', 10: '08', 11: '09', 12: '10', 13: '11',
     14: '12', 15: '13', 16: '14', 17: '15', 18: '16', 19: '17', 20: '裏表紙'
   };
 
@@ -40,6 +40,7 @@
   var traceO  = document.getElementById('fbTraceO');
   var traceB  = document.getElementById('fbTraceB');
   var walker  = document.getElementById('fbWalker');
+  var partEl  = document.getElementById('fbPart');
   var btnThumbs = document.getElementById('fbThumbs');
   var strip   = document.getElementById('fbThumbStrip');
   var btnFull = document.getElementById('fbFull');
@@ -107,7 +108,19 @@
     var v = view(s);
     if (s <= 0) return '表紙';
     if (s >= MAX_SI) return '裏表紙';
-    return FOLIO[v.R] + '\u3000–\u3000' + FOLIO[v.L];
+    /* 画面に並んでいる順（左→右）で表示する */
+    var parts = [FOLIO[v.L], FOLIO[v.R]].filter(function (x) { return x; });
+    return parts.join('\u3000–\u3000');
+  }
+
+  /* いま冊子のどのあたりを開いているか */
+  function partOf(n) {
+    if (n <= 1)  return '表紙';
+    if (n <= 9)  return '小説『不揃いな靴に選ばれる』';
+    if (n <= 13) return '世界観解説  WORLDVIEW NOTE';
+    if (n <= 18) return '用語解説  CONCEPT NOTE';
+    if (n <= 19) return '奥付';
+    return '裏表紙';
   }
 
   function progress(s, pg) {
@@ -121,10 +134,14 @@
   function updateChrome(s, pg) {
     if (s === undefined) { s = si; pg = page; }
     counter.textContent = label(s, pg);
+    if (partEl) {
+      var v0 = view(s);
+      partEl.textContent = partOf(single ? pg : (v0.R || v0.L));
+    }
     var pct = Math.round(progress(s, pg) * 100);
     traceO.style.width = pct + '%';
     traceB.style.width = Math.max(0, pct - 6) + '%';
-    if (walker) walker.style.left = pct + '%';
+    if (walker) walker.style.right = pct + '%';
 
     var atStart = single ? pg <= 1 : s <= 0;
     var atEnd   = single ? pg >= TOTAL_PAGES : s >= MAX_SI;

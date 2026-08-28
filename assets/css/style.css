@@ -671,3 +671,38 @@ kbd{font-family:var(--lat);font-size:12px;padding:2px 8px;border:1px solid var(-
 .fb.is-single .fb__flip.dir-next,
 .fb.is-single .fb__flip.dir-prev{left:0;width:100%;transform-origin:right center}
 .fb__bind{display:none}
+
+/* ══════════════════════════════════════════════
+   河田さん・河野さんからの指摘への対応
+   ══════════════════════════════════════════════ */
+
+/* ① ノドの影：中央がいちばん濃く、外へ向かって抜ける（18%→0・幅8%） */
+.fb__gutter{
+  left:45.5%;width:9%;
+  background:linear-gradient(90deg,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,.18) 50%,
+    rgba(0,0,0,0) 100%);
+}
+.fb:not(.is-single) .fb__slot--left,
+.fb:not(.is-single) .fb__slot--right{box-shadow:none}
+
+/* ② 進捗バーと足跡は右から左へ（読み進む向きに合わせる） */
+.fb__trace-line{left:auto;right:0}
+.fb__walker{left:auto;right:0;transition:right .62s cubic-bezier(.42,.02,.28,1)}
+.fb__walker svg:first-child{transform:translateY(-5px) rotate(261deg)}
+.fb__walker svg:last-child{transform:translateY(5px) rotate(279deg)}
+
+/* ③ 目次を閉じられなかった不具合（display:flex が hidden を打ち消していた） */
+.fb__thumbs[hidden]{display:none}
+
+/* ④ 全画面のとき、下端が見切れないよう高さでも上限をかける */
+.fb:fullscreen .fb__book{max-width:min(1500px,88vw,104vh)}
+.fb.is-single:fullscreen .fb__book{max-width:min(620px,92vw,52vh)}
+
+/* いま開いている章 */
+.fb__part{
+  margin:0 0 12px;text-align:center;
+  font-size:12px;letter-spacing:.12em;color:rgba(119,201,213,.85);
+}
+@media (max-width:640px){ .fb__part{font-size:11px;margin-bottom:10px} }
