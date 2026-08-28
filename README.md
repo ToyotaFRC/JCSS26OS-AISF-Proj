@@ -48,3 +48,17 @@ AIパートナーは本当に"善い社会"をもたらすのか。物語を先�
 
 ### 発行
 追手門学院大学／慶應義塾大学／トヨタ自動車株式会社 未来創生センター
+
+---
+
+## ライセンス / License
+
+[![CC BY-NC-ND 4.0](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja)
+
+© 2026 追手門学院大学・慶應義塾大学・トヨタ自動車株式会社 未来創生センター
+
+本リポジトリのコンテンツは [クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.ja) の下に提供されています。
+
+The contents of this repository are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+> 本サイトのコンテンツは、変更・追加・削除される場合があります。
