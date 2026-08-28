@@ -293,6 +293,12 @@ button{font:inherit;color:inherit}
 .foot{background:var(--night);color:rgba(242,240,234,.5);padding:38px 20px;text-align:center;font-size:12px;line-height:2}
 .foot p{margin:0}
 .foot__c{font-family:var(--lat);letter-spacing:.06em;margin-top:6px;opacity:.7}
+.foot__license{margin-top:24px;padding-top:20px;border-top:1px solid rgba(242,240,234,.12);display:flex;flex-direction:column;align-items:center;gap:10px}
+.foot__license img{border:0;display:block;opacity:.85;transition:opacity .2s}
+.foot__license img:hover{opacity:1}
+.foot__license p{margin:0;line-height:1.75;font-size:11.5px;white-space:nowrap}
+.foot__license a{color:rgba(242,240,234,.7);text-underline-offset:2px;transition:color .2s}
+.foot__license a:hover{color:var(--teal-soft)}
 
 /* ── レスポンシブ ─────────────────────────────── */
 @media (max-width:900px){
